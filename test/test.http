@@ -1,0 +1,9 @@
+###  GET ROOT
+GET http://127.0.0.1:8080
+Accept: application/json
+
+
+### Search Text
+GET http://127.0.0.1:8080/search/text?keyword=lessapi
+Accept: application/json
+
