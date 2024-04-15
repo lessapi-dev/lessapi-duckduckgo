@@ -71,6 +71,10 @@ curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
 }
 ```
 
+## Security
+
+[![Security Status](https://www.murphysec.com/platform3/v31/badge/1779906127272730624.svg)](https://www.murphysec.com/console/report/1778449242088529920/1779906127272730624)
+
 ## About
 
 This project is developed and maintained by [Xiamen Jingdu Network Technology Co., Ltd.](https://gentletld.cn).
