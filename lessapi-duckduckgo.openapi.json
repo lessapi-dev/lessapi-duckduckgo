@@ -1,0 +1,256 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "lessapi-duckduckgo",
+    "description": "",
+    "version": "0.0.1"
+  },
+  "tags": [],
+  "paths": {
+    "/search/text": {
+      "get": {
+        "summary": "search/text",
+        "deprecated": false,
+        "description": "search text by keyword.",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "keywords for query.",
+            "required": true,
+            "example": "lessapi",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "locate region. wt-wt, us-en, uk-en, ru-ru, etc. Defaults to \"wt-wt\".",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timeLimit",
+            "in": "query",
+            "description": "d (day), w (week), m (month), y (year). Defaults to None.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxCount",
+            "in": "query",
+            "description": "max number of results. Defaults to 20.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "viaProxyUrl",
+            "in": "query",
+            "description": "proxy url to use by browser. Defaults to None.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-apifox-refs": {
+                    "01HVH2M9Y2VJ96NS0EN2B0929X": {
+                      "$ref": "#/components/schemas/ApiResponse",
+                      "x-apifox-overrides": {
+                        "data": {
+                          "type": "object",
+                          "properties": {
+                            "results": {
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/components/schemas/SearchTextResultItem"
+                              },
+                              "description": "search result items"
+                            }
+                          },
+                          "description": "success data",
+                          "required": [
+                            "results"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "\"success\" or ErrorCode"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "error message"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/SearchTextResultItem"
+                          },
+                          "description": "search result items"
+                        }
+                      },
+                      "description": "success data",
+                      "required": [
+                        "results"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": "success",
+                      "data": {
+                        "results": [
+                          {
+                            "order": 1,
+                            "title": "Adele - Hello (Official Music Video) - YouTube",
+                            "href": "https://www.youtube.com/watch?v=YQHsXMglC9A",
+                            "description": "Listen to \"Easy On Me\" here: http://Adele.lnk.to/EOMPre-order Adele's new album \"30\" before its release on November 19: https://www.adele.comShop the \"Adele..."
+                          },
+                          {
+                            "order": 2,
+                            "title": "Hello Definition & Meaning - Merriam-Webster",
+                            "href": "https://www.merriam-webster.com/dictionary/hello",
+                            "description": "Learn the origin, usage, and synonyms of the word hello, an expression or gesture of greeting. See examples of hello in sentences and related words from the dictionary."
+                          },
+                          {
+                            "order": 3,
+                            "title": "HELLO | definition in the Cambridge English Dictionary",
+                            "href": "https://dictionary.cambridge.org/us/dictionary/english/hello",
+                            "description": "Learn the meaning, pronunciation and usage of hello, a common greeting and phone call in English. Find out how to say hello in different situations and languages with examples and translations."
+                          },
+                          {
+                            "order": 4,
+                            "title": "Hello - Wikipedia",
+                            "href": "https://en.wikipedia.org/wiki/Hello",
+                            "description": "Hello is a salutation or greeting in the English language. It is first attested in writing from 1826. Early uses. Hello, with that spelling, was used in publications in the U.S. as early as the 18 October 1826 edition of the Norwich Courier of Norwich, Connecticut."
+                          },
+                          {
+                            "order": 5,
+                            "title": "Adele - Hello (Official Music Video) - YouTube Music",
+                            "href": "https://music.youtube.com/watch?v=YQHsXMglC9A",
+                            "description": "Add similar content to the end of the queue. Autoplay is on. Player bar"
+                          },
+                          {
+                            "order": 6,
+                            "title": "Adele - Hello | Lyrics | HD - YouTube",
+                            "href": "https://www.youtube.com/watch?v=CaHWq1rheeU",
+                            "description": "\"Hello\" is taken from the new album, 25, out November 20.http://adele.comFollow Adele on: Facebook - https://www.facebook.com/AdeleTwitter - https://twitter...."
+                          },
+                          {
+                            "order": 7,
+                            "title": "HELLO | meaning - Cambridge Learner's Dictionary",
+                            "href": "https://dictionary.cambridge.org/dictionary/learner-english/hello",
+                            "description": "Learn the meaning and usage of hello, an exclamation to greet someone or start a phone call. Find translations of hello in many languages, such as Chinese, Spanish, French, Arabic, and more."
+                          },
+                          {
+                            "order": 8,
+                            "title": "The Origin of 'Hello' | Merriam-Webster",
+                            "href": "https://www.merriam-webster.com/wordplay/the-origin-of-hello",
+                            "description": "Learn how hello became the most common word for greeting in English, and how it replaced older terms like hail and ahoy. Discover the history and usage of hello, from its first appearance in the 1800s to its role in the telephone era."
+                          },
+                          {
+                            "order": 9,
+                            "title": "Adele - Hello Lyrics | Genius Lyrics",
+                            "href": "https://genius.com/Adele-hello-lyrics",
+                            "description": "Hello Lyrics: Hello, it's me / I was wondering if, after all these years, you'd like to meet / To go over everything / They say that time's supposed to heal ya / But I ain't done much healin"
+                          },
+                          {
+                            "order": 10,
+                            "title": "HELLO | English meaning - Cambridge Dictionary",
+                            "href": "https://dictionary.cambridge.org/dictionary/english/hello",
+                            "description": "Learn the meaning and usage of the word hello in English, with examples from different contexts and sources. Find out how to pronounce hello and how to say it in other languages."
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/4335091/apis/api-165144694-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SearchTextResultItem": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "order",
+          "title",
+          "url",
+          "description"
+        ]
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "\"success\" or ErrorCode"
+          },
+          "message": {
+            "type": "string",
+            "description": "error message"
+          },
+          "data": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8080",
+      "description": "Local Development Server"
+    }
+  ]
+}

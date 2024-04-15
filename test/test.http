@@ -4,6 +4,6 @@ Accept: application/json
 
 
 ### Search Text
-GET http://127.0.0.1:8080/search/text?keyword=lessapi
+GET http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=15
 Accept: application/json
 

@@ -1,13 +1,16 @@
 package internal
 
 import (
-	"github.com/gentleshare/lessapi-duckduckgo/internal/handles"
-	"github.com/gin-gonic/gin"
 	"log"
+
+	"github.com/gin-gonic/gin"
+
+	"github.com/gentleshare/lessapi-duckduckgo/internal/handles"
 )
 
 func Run() {
-	//gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.ReleaseMode)
+
 	r := gin.Default()
 
 	r.GET("/", handles.IndexHandle)
