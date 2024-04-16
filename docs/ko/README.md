@@ -73,10 +73,6 @@ curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
 }
 ```
 
-## 프로젝트 정보
-
-이 프로젝트는 [厦门静笃网络科技有限公司](https://gentletld.cn)에 의해 개발和维护되고 있습니다.
-
 ## 라이선스
 
 [MIT](./../../LICENSE)

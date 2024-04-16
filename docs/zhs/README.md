@@ -15,7 +15,6 @@
 [Italiano](./../it/README.md) |
 [Português](./../pt/README.md)
 
-(当前语言文档由AI翻译生成，如有疑问，请以简体中文或英文文档为准)
 
 ---
 
@@ -77,9 +76,9 @@ curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
 
 ```
 
-## 关于
+## 安全
 
-本项目由 [厦门静笃网络科技有限公司](https://gentletld.cn) 开发和维护。
+[![Security Status](https://www.murphysec.com/platform3/v31/badge/1779906127272730624.svg)](https://www.murphysec.com/console/report/1778449242088529920/1779906127272730624)
 
 ## 许可
 

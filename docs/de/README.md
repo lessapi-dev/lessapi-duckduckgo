@@ -76,10 +76,6 @@ curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
 }
 ```
 
-## Über
-
-Dieses Projekt wird von [Xiamen Jingdu Network Technology Co., Ltd.](https://gentletld.cn) entwickelt und gewartet.
-
 ## Lizenz
 
 [MIT](./../../LICENSE)

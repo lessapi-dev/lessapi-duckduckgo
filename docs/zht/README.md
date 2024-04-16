@@ -76,10 +76,6 @@ curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
 }
 ```
 
-## 關於
-
-本專案由 [廈門靜篤網絡科技有限公司](https://gentletld.cn) 開發和維護。
-
 ## 許可
 
 [MIT](./../../LICENSE)
