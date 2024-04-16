@@ -27,6 +27,14 @@ Simple, lightweight, reliable, Docker deployable, easy to maintain.
 
 > Experimentally under development and not recommended for use in production environments.
 
+## Deployment
+
+One command is all it takes to deploy the service to port 8080 using Docker.
+
+```shell
+docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo lessapi/lessapi-duckduckgo:v0.0.1
+```
+
 ## Usage
 
 ### OpenAPI Standard Documentation (Swagger 3.0)
