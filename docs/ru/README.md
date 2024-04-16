@@ -1,7 +1,7 @@
 # LessAPI-DuckDuckGo
 
 [![GitHub](https://img.shields.io/github/license/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://github.com/lessapi-dev/lessapi-duckduckgo)
-[![Docker](https://img.shields.io/docker/pulls/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
+[![Docker](https://img.shields.io/docker/pulls/lessapi/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
 
 [English](./../../README.md) |
 [简体中文](./../zhs/README.md) |
@@ -44,7 +44,8 @@ LessAPI-DuckDuckGo является сервисом API поисковой си
 - region: регион (опционально)  wt-wt, us-en, uk-en, ru-ru и т.д. Значение по умолчанию wt-wt
 - maxCount: максимальное количество возвращаемых результатов (опционально)  Значение по умолчанию 20
 - viaProxyUrl: адрес прокси для браузера (опционально)  Например, http://proxy.server:3000  Значение по умолчанию пустое
-  **Пример запроса:**
+
+**Пример запроса:**
 
 ```shell
 curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
@@ -80,4 +81,4 @@ curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
 
 ## Лицензия
 
-[Apache-2.0](./../../LICENSE)
+[MIT](./../../LICENSE)

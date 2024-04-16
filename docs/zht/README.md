@@ -1,7 +1,7 @@
 # LessAPI-DuckDuckGo
 
 [![GitHub](https://img.shields.io/github/license/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://github.com/lessapi-dev/lessapi-duckduckgo)
-[![Docker](https://img.shields.io/docker/pulls/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
+[![Docker](https://img.shields.io/docker/pulls/lessapi/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
 
 [English](./../../README.md) |
 [简体中文](./../zhs/README.md) |
@@ -45,7 +45,8 @@ LessAPI-DuckDuckGo 是一個搜索引擎API服務。
 - region: 地區(選填)  wt-wt, us-en, uk-en, ru-ru, 等 預設值 wt-wt
 - maxCount: 最大返回數量(選填)  預設值 20
 - viaProxyUrl: 瀏覽器使用代理的地址(選填) 如 http://proxy.server:3000  預設值 空
-  **請求示例:**
+
+**請求示例:**
 
 ```shell
 curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
@@ -81,4 +82,4 @@ curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
 
 ## 許可
 
-[Apache-2.0](./../../LICENSE)
+[MIT](./../../LICENSE)

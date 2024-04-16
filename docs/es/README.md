@@ -1,7 +1,7 @@
 # LessAPI-DuckDuckGo
 
 [![GitHub](https://img.shields.io/github/license/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://github.com/lessapi-dev/lessapi-duckduckgo)
-[![Docker](https://img.shields.io/docker/pulls/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
+[![Docker](https://img.shields.io/docker/pulls/lessapi/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
 
 [English](./../../README.md) |
 [简体中文](./../zhs/README.md) |
@@ -46,7 +46,8 @@ Es simple, ligero, confiable, se puede desplegar con Docker y fácil de mantener
 - maxCount: Número máximo de resultados devueltos (opcional) El valor predeterminado es 20
 - viaProxyUrl: Dirección del proxy utilizado por el navegador (opcional) como http://proxy.server:3000 El valor
   predeterminado es vacío
-  **Ejemplo de solicitud:**
+
+**Ejemplo de solicitud:**
 
 ```shell
 curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
@@ -82,4 +83,4 @@ Este proyecto está siendo desarrollado y mantenido por [厦门静笃网络科�
 
 ## Licencia
 
-[Apache-2.0](./../../LICENSE)
+[MIT](./../../LICENSE)

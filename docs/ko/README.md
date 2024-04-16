@@ -1,7 +1,7 @@
 # LessAPI-DuckDuckGo
 
 [![GitHub](https://img.shields.io/github/license/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://github.com/lessapi-dev/lessapi-duckduckgo)
-[![Docker](https://img.shields.io/docker/pulls/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
+[![Docker](https://img.shields.io/docker/pulls/lessapi/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
 
 [English](./../../README.md) |
 [简体中文](./../zhs/README.md) |
@@ -42,7 +42,8 @@ LessAPI-DuckDuckGo는 DuckDuckGo 검색 엔진을 기반으로 하는 간단한 
 - region: 지역(선택)  wt-wt, us-en, uk-en, ru-ru, 등 기본값 wt-wt
 - maxCount: 최대 반환 수(선택)  기본값 20
 - viaProxyUrl: 브라우저가 프록시를 사용하는 주소(선택)  예: http://proxy.server:3000  기본값: 빈 문자열
-  **요청 예시:**
+
+**요청 예시:**
 
 ```shell
 curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
@@ -78,4 +79,4 @@ curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
 
 ## 라이선스
 
-[Apache-2.0](./../../LICENSE)
+[MIT](./../../LICENSE)

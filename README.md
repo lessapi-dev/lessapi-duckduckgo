@@ -1,7 +1,7 @@
 # LessAPI-DuckDuckGo
 
 [![GitHub](https://img.shields.io/github/license/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://github.com/lessapi-dev/lessapi-duckduckgo)
-[![Docker](https://img.shields.io/docker/pulls/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
+[![Docker](https://img.shields.io/docker/pulls/lessapi/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
 
 [English](./README.md) |
 [简体中文](./docs/zhs/README.md) |
@@ -41,7 +41,8 @@ Simple, lightweight, reliable, Docker deployable, easy to maintain.
 - region: Region (optional) such as wt-wt, us-en, uk-en, ru-ru, etc. Default is wt-wt
 - maxCount: Maximum number of results returned (optional) Default is 20
 - viaProxyUrl: The address of the proxy used by the browser (optional) e.g., http://proxy.server:3000 Default is empty
-  **Request Example:**
+
+**Request Example:**
 
 ```shell
 curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
@@ -81,4 +82,4 @@ This project is developed and maintained by [Xiamen Jingdu Network Technology Co
 
 ## License
 
-[Apache-2.0](./LICENSE)
+[MIT](./LICENSE)

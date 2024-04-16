@@ -1,7 +1,7 @@
 # LessAPI-DuckDuckGo
 
 [![GitHub](https://img.shields.io/github/license/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://github.com/lessapi-dev/lessapi-duckduckgo)
-[![Docker](https://img.shields.io/docker/pulls/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
+[![Docker](https://img.shields.io/docker/pulls/lessapi/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi-dev/lessapi-duckduckgo)
 
 [English](./../../README.md) |
 [简体中文](./../zhs/README.md) |
@@ -43,7 +43,8 @@ playwright と DuckDuckGo 検索エンジンを基に、単純なAPIインター
 - region: 地域(任意)  wt-wt, us-en, uk-en, ru-ru, など。デフォルト値は wt-wt
 - maxCount: 最大返信数(任意)  デフォルト値は 20
 - viaProxyUrl: ブラウザが使用するプロキシのアドレス(任意)  例: http://proxy.server:3000  デフォルト値は空
-  **リクエスト例:**
+
+**リクエスト例:**
 
 ```shell
 curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
@@ -79,4 +80,4 @@ curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
 
 ## ライセンス
 
-[Apache-2.0](./../../LICENSE)
+[MIT](./../../LICENSE)
