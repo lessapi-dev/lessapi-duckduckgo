@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/gentleshare/lessapi-duckduckgo/internal/handles"
+	"github.com/lessapidev/lessapi-duckduckgo/internal/handles"
 )
 
 func Run() {

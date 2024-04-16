@@ -1,7 +1,7 @@
 # LessAPI-DuckDuckGo
 
-[![GitHub](https://img.shields.io/github/license/gentleshare/lessapi-duckduckgo?style=for-the-badge)](https://github.com/username/lessapi-duckduckgo)
-[![Docker](https://img.shields.io/docker/pulls/gentleshare/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/gentleshare/lessapi-duckduckgo)
+[![GitHub](https://img.shields.io/github/license/lessapidev/lessapi-duckduckgo?style=for-the-badge)](https://github.com/username/lessapi-duckduckgo)
+[![Docker](https://img.shields.io/docker/pulls/lessapidev/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapidev/lessapi-duckduckgo)
 
 [English](./../../README.md) |
 [简体中文](./../zhs/README.md) |

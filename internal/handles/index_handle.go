@@ -3,8 +3,8 @@ package handles
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/gentleshare/lessapi-duckduckgo"
-	"github.com/gentleshare/lessapi-duckduckgo/internal/utils"
+	"github.com/lessapidev/lessapi-duckduckgo"
+	"github.com/lessapidev/lessapi-duckduckgo/internal/utils"
 )
 
 func IndexHandle(c *gin.Context) {

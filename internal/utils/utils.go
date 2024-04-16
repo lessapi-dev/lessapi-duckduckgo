@@ -3,7 +3,7 @@ package utils
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/gentleshare/lessapi-duckduckgo/internal/types"
+	"github.com/lessapidev/lessapi-duckduckgo/internal/types"
 )
 
 func BuildApiSuccess() *types.ApiResponse[any] {

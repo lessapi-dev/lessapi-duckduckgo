@@ -2,16 +2,15 @@ package searchs
 
 import (
 	"fmt"
-	"log"
 	"time"
 
 	"github.com/playwright-community/playwright-go"
 
-	"github.com/gentleshare/lessapi-duckduckgo/internal/types"
+	"github.com/lessapidev/lessapi-duckduckgo/internal/types"
 )
 
 var pageWaitOpt = playwright.PageWaitForLoadStateOptions{
-	State: playwright.LoadStateNetworkidle,
+	State: playwright.LoadStateDomcontentloaded,
 }
 
 func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error) {
@@ -56,7 +55,7 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 	// create new page
 	page, err := browserCtx.NewPage()
 	if err != nil {
-		log.Fatalf("could not create page: %v", err)
+		return nil, fmt.Errorf("could not create page: %w", err)
 	}
 
 	// -----------------------------------------------------------
@@ -65,23 +64,23 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 
 	// open homepage, input keyword and search
 	if _, err = page.Goto("https://duckduckgo.com/"); err != nil {
-		log.Fatalf("could not goto: %v", err)
+		return nil, fmt.Errorf("could not goto: %w", err)
 	}
 	if err = page.WaitForLoadState(pageWaitOpt); err != nil {
-		log.Fatalf("could not wait for load: %v", err)
+		return nil, fmt.Errorf("could not wait for load: %w", err)
 	}
 	time.Sleep(1 * time.Second) // wait for page to load
 	if err = page.Fill("input[name=q]", param.Keyword); err != nil {
-		log.Fatalf("could not fill: %v", err)
+		return nil, fmt.Errorf("could not fill: %w", err)
 	}
 	if err = page.Keyboard().Press("Enter"); err != nil {
-		log.Fatalf("could not press Enter: %v", err)
+		return nil, fmt.Errorf("could not press Enter: %w", err)
 	}
 	// wait for search result page to load
 	if err = page.WaitForLoadState(pageWaitOpt); err != nil {
-		log.Fatalf("could not wait for load: %v", err)
+		return nil, fmt.Errorf("could not wait for load: %w", err)
 	}
-	time.Sleep(1 * time.Second) // wait for page to load
+	time.Sleep(5 * time.Second) // wait for page to load
 
 	// -----------------------------------------------------------
 	// fetch pages
@@ -97,23 +96,23 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 	for i := 0; i < pageCount; i++ {
 		// scroll to bottom
 		if _, err = page.Evaluate("window.scrollTo(0, document.body.scrollHeight)"); err != nil {
-			log.Fatalf("could not scroll to bottom: %v", err)
+			continue
 		}
 		// wait for elements to load
 		time.Sleep(1 * time.Second) // wait for page to load
 		// click "more results" button
 		exist, err := locator.IsVisible()
 		if err != nil {
-			log.Fatalf("could not check if visible: %v", err)
+			continue
 		}
 		if exist {
 			if err = locator.Click(); err != nil {
-				log.Fatalf("could not click: %v", err)
+				continue
 			}
 			// wait for elements to load
 			time.Sleep(500 * time.Microsecond)
 			if err = page.WaitForLoadState(pageWaitOpt); err != nil {
-				log.Fatalf("could not wait for load: %v", err)
+				continue
 			}
 		} else {
 			break // no more results

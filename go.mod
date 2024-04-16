@@ -1,4 +1,4 @@
-module github.com/gentleshare/lessapi-duckduckgo
+module github.com/lessapidev/lessapi-duckduckgo
 
 go 1.20
 
