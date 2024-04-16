@@ -20,7 +20,7 @@ FROM ubuntu:jammy
 COPY --from=builder /go/bin/playwright /bin/lessapi-duckduckgo /
 COPY ./resource /resource
 RUN apt-get update && apt-get install -y ca-certificates tzdata \
-    && /playwright install --with-deps Chromium \
+    && /playwright install --with-deps chromium \
     && rm -rf /var/lib/apt/lists/* \
     && chmod +x /lessapi-duckduckgo
 CMD ["/lessapi-duckduckgo"]
