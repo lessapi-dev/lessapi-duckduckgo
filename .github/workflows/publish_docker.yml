@@ -7,7 +7,7 @@ on:
       - 'beta*' # Push events to matching beta*, i.e. beta1.0, beta20.15.10
 
 env:
-  REGISTRY: hub.docker.com
+  REGISTRY: docker.io
   IMAGE_NAME: lessapi/lessapi-duckduckgo
 
 jobs:
