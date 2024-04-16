@@ -45,12 +45,12 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 		viewportHeight:  playwright.Int(1080 - 35),
 	}
 	browserCtx, browserClose, err := NewBrowserContextWithOptions(browserOpt)
-	defer (func() {
-		_ = browserClose()
-	})()
 	if err != nil {
 		return nil, fmt.Errorf("could not create virtual browser context: %w", err)
 	}
+	defer (func() {
+		_ = browserClose()
+	})()
 
 	// create new page
 	page, err := browserCtx.NewPage()

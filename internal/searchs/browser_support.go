@@ -18,10 +18,8 @@ func NewBrowserContextWithOptions(opt BrowserOptions) (playwright.BrowserContext
 	}
 
 	// launch browser
-	launchOptions := playwright.BrowserTypeLaunchOptions{
-		Headless: playwright.Bool(false),
-	}
-	launchOptions.Headless = playwright.Bool(false)
+	launchOptions := playwright.BrowserTypeLaunchOptions{}
+	launchOptions.Headless = playwright.Bool(true)
 	if opt.ProxyServer != nil && *opt.ProxyServer != "" {
 		launchOptions.Proxy = &playwright.Proxy{Server: *opt.ProxyServer}
 	}
