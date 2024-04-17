@@ -33,7 +33,7 @@ playwright と DuckDuckGo 検索エンジンを基に、単純なAPIインター
 
 ### OpenAPI標準ドキュメント (Swagger 3.0)
 
-[OpenAPI標準ドキュメント (Swagger 3.0)](./../../lessapi-duckduckgo.openapi.json)
+[OpenAPI標準ドキュメント (Swagger 3.0)](../../resource/openapi.json)
 
 ### テキスト検索 `GET /search/text`
 

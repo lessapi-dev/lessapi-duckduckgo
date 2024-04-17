@@ -33,7 +33,7 @@ offre un'interfaccia API semplice, leggera e affidabile, ed è facilmente manten
 
 ### Documento OpenAPI standard (Swagger 3.0)
 
-[Documento OpenAPI standard (Swagger 3.0)](./../../lessapi-duckduckgo.openapi.json)
+[Documento OpenAPI standard (Swagger 3.0)](../../resource/openapi.json)
 
 ### Ricerca testuale `GET /search/text`
 

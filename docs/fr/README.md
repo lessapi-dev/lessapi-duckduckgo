@@ -34,7 +34,7 @@ Simple, léger, fiable, déployable via Docker, facile à maintenir.
 
 ### Documentation OpenAPI (Swagger 3.0)
 
-[Documentation OpenAPI (Swagger 3.0)](./../../lessapi-duckduckgo.openapi.json)
+[Documentation OpenAPI (Swagger 3.0)](../../resource/openapi.json)
 
 ### Recherche texte `GET /search/text`
 

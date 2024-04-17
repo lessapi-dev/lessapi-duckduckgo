@@ -34,7 +34,7 @@ Simples, leve, confiável, implantado com Docker, fácil de manter.
 
 ### Documento padrão OpenAPI (Swagger 3.0)
 
-[Documento padrão OpenAPI (Swagger 3.0)](./../../lessapi-duckduckgo.openapi.json)
+[Documento padrão OpenAPI (Swagger 3.0)](../../resource/openapi.json)
 
 ### Pesquisa de texto `GET /search/text`
 

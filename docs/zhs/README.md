@@ -42,7 +42,7 @@ docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo le
 
 ### OpenAPI标准文档 (Swagger 3.0)
 
-[OpenAPI标准文档 (Swagger 3.0)](./../../lessapi-duckduckgo.openapi.json)
+[OpenAPI标准文档 (Swagger 3.0)](../../resource/openapi.json)
 
 ### 文本搜索 `GET /search/text`
 

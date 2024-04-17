@@ -34,7 +34,7 @@ LessAPI-DuckDuckGo является сервисом API поисковой си
 
 ### OpenAPI стандартный документ (Swagger 3.0)
 
-[OpenAPI стандартный документ (Swagger 3.0)](./../../lessapi-duckduckgo.openapi.json)
+[OpenAPI стандартный документ (Swagger 3.0)](../../resource/openapi.json)
 
 ### Текстовый поиск `GET /search/text`
 

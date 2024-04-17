@@ -68,29 +68,6 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "x-apifox-refs": {
-                    "01HVH2M9Y2VJ96NS0EN2B0929X": {
-                      "$ref": "#/components/schemas/ApiResponse",
-                      "x-apifox-overrides": {
-                        "data": {
-                          "type": "object",
-                          "properties": {
-                            "results": {
-                              "type": "array",
-                              "items": {
-                                "$ref": "#/components/schemas/SearchTextResultItem"
-                              },
-                              "description": "search result items"
-                            }
-                          },
-                          "description": "success data",
-                          "required": [
-                            "results"
-                          ]
-                        }
-                      }
-                    }
-                  },
                   "properties": {
                     "code": {
                       "type": "string",
@@ -196,8 +173,7 @@
               }
             }
           }
-        },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/4335091/apis/api-165144694-run"
+        }
       }
     }
   },

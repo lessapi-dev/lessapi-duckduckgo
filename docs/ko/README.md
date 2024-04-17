@@ -32,7 +32,7 @@ LessAPI-DuckDuckGo는 DuckDuckGo 검색 엔진을 기반으로 하는 간단한 
 
 ### OpenAPI 표준 문서 (Swagger 3.0)
 
-[OpenAPI 표준 문서 (Swagger 3.0)](./../../lessapi-duckduckgo.openapi.json)
+[OpenAPI 표준 문서 (Swagger 3.0)](../../resource/openapi.json)
 
 ### 텍스트 검색 `GET /search/text`
 

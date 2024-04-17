@@ -2,9 +2,7 @@ package searchs
 
 import (
 	"fmt"
-	"io"
-	"os"
-
+	"github.com/lessapidev/lessapi-duckduckgo/internal/utils"
 	"github.com/playwright-community/playwright-go"
 )
 
@@ -53,7 +51,7 @@ func NewBrowserContextWithOptions(opt BrowserOptions) (playwright.BrowserContext
 
 	// add init stealth.min.js
 	if opt.EnableStealthJs != nil && *opt.EnableStealthJs {
-		stealthJs, err := readLocalFile("./resource/stealth.min.js")
+		stealthJs, err := utils.ReadLocalFile("./resource/stealth.min.js")
 		if err != nil {
 			return nil, nil, fmt.Errorf("could not read stealth.min.js: %w", err)
 		}
@@ -78,21 +76,4 @@ func NewBrowserContextWithOptions(opt BrowserOptions) (playwright.BrowserContext
 
 	return context, closeHandler, nil
 
-}
-
-// TODO move to utils
-func readLocalFile(filename string) (string, error) {
-	file, err := os.Open(filename)
-	if err != nil {
-		return "", err
-	}
-	defer func() {
-		_ = file.Close()
-	}()
-
-	data, err := io.ReadAll(file)
-	if err != nil {
-		return "", err
-	}
-	return string(data), nil
 }

@@ -14,6 +14,7 @@ func Run() {
 	r := gin.Default()
 
 	r.GET("/", handles.IndexHandle)
+	r.GET("/openapi/openapi.json", handles.OpenAPIHandle)
 	r.GET("/search/text", handles.SearchTextHandle)
 
 	err := r.Run(":8080")

@@ -35,7 +35,7 @@ LessAPI-DuckDuckGo 是一個搜索引擎API服務。
 
 ### OpenAPI標準文檔 (Swagger 3.0)
 
-[OpenAPI標準文檔 (Swagger 3.0)](./../../lessapi-duckduckgo.openapi.json)
+[OpenAPI標準文檔 (Swagger 3.0)](../../resource/openapi.json)
 
 ### 文本搜索 `GET /search/text`
 
