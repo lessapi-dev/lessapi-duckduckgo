@@ -53,7 +53,11 @@ docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo le
 **Request Example:**
 
 ```shell
-curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
+curl 'http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=2'
+```
+
+```shell
+curl 'http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=99&viaProxyUrl=http://proxy.server:3000'
 ```
 
 **Response Example:**

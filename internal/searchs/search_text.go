@@ -2,16 +2,11 @@ package searchs
 
 import (
 	"fmt"
-	"time"
-
-	"github.com/playwright-community/playwright-go"
 
 	"github.com/lessapidev/lessapi-duckduckgo/internal/types"
-)
 
-var pageWaitOpt = playwright.PageWaitForLoadStateOptions{
-	State: playwright.LoadStateDomcontentloaded,
-}
+	"github.com/playwright-community/playwright-go"
+)
 
 func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error) {
 
@@ -63,94 +58,100 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 	// -----------------------------------------------------------
 
 	// open homepage, input keyword and search
-	if _, err = page.Goto("https://duckduckgo.com/"); err != nil {
+	if _, err = page.Goto("https://duckduckgo.com/", playwright.PageGotoOptions{Timeout: playwright.Float(10 * 1000)}); err != nil {
 		return nil, fmt.Errorf("could not goto: %w", err)
 	}
-	if err = page.WaitForLoadState(pageWaitOpt); err != nil {
+	if err = page.WaitForLoadState(playwright.PageWaitForLoadStateOptions{Timeout: playwright.Float(10 * 1000)}); err != nil {
 		return nil, fmt.Errorf("could not wait for load: %w", err)
 	}
-	time.Sleep(1 * time.Second) // wait for page to load
-	if err = page.Fill("input[name=q]", param.Keyword); err != nil {
+	inputLocator := page.Locator("input[name=q]")
+	if err := inputLocator.WaitFor(playwright.LocatorWaitForOptions{Timeout: playwright.Float(10 * 1000)}); err != nil {
+		return nil, fmt.Errorf("could not locate input: %w", err)
+	}
+	if err = inputLocator.Fill(param.Keyword); err != nil {
 		return nil, fmt.Errorf("could not fill: %w", err)
 	}
+
+	// goto search result page
 	if err = page.Keyboard().Press("Enter"); err != nil {
 		return nil, fmt.Errorf("could not press Enter: %w", err)
 	}
-	// wait for search result page to load
-	if err = page.WaitForLoadState(pageWaitOpt); err != nil {
-		return nil, fmt.Errorf("could not wait for load: %w", err)
+	majorAreaLocator := page.Locator("section[data-testid=mainline]")
+	if err = majorAreaLocator.WaitFor(playwright.LocatorWaitForOptions{Timeout: playwright.Float(10 * 1000)}); err != nil {
+		return nil, fmt.Errorf("could not find major div: %w", err)
 	}
-	time.Sleep(5 * time.Second) // wait for page to load
-
-	// -----------------------------------------------------------
-	// fetch pages
-	// -----------------------------------------------------------
-
-	// calculate page count
-	pageCount := param.MaxCount/20 + 1
-	if pageCount < 1 {
-		pageCount = 1
-	}
-	// get enough search results at first
-	locator := page.Locator("button[id='more-results']")
-	for i := 0; i < pageCount; i++ {
-		// scroll to bottom
-		if _, err = page.Evaluate("window.scrollTo(0, document.body.scrollHeight)"); err != nil {
-			continue
-		}
-		// wait for elements to load
-		time.Sleep(1 * time.Second) // wait for page to load
-		// click "more results" button
-		exist, err := locator.IsVisible()
-		if err != nil {
-			continue
-		}
-		if exist {
-			if err = locator.Click(); err != nil {
-				continue
-			}
-			// wait for elements to load
-			time.Sleep(500 * time.Microsecond)
-			if err = page.WaitForLoadState(pageWaitOpt); err != nil {
-				continue
-			}
-		} else {
-			break // no more results
-		}
+	if err = page.WaitForLoadState(playwright.PageWaitForLoadStateOptions{
+		State:   playwright.LoadStateNetworkidle,
+		Timeout: playwright.Float(10 * 1000),
+	}); err != nil {
+		return nil, fmt.Errorf("could not wait for load result: %w", err)
 	}
 
 	// -----------------------------------------------------------
-	// parse search results
+	// parse search results & auto next page
 	// -----------------------------------------------------------
 
 	// find all search result elements
 	searchResultList := make([]types.SearchTextResultItem, 0)
-	elResultLiList, err := page.Locator("ol[class=react-results--main]").Locator("li[data-layout=organic]").All()
-	if err != nil {
-		return nil, fmt.Errorf("could not get search results: %w", err)
-	}
-	for i, elResultLi := range elResultLiList {
-		title, err := elResultLi.Locator("a[data-testid=result-title-a]").InnerText()
+	for len(searchResultList) < param.MaxCount {
+		elResultLiList, err := page.Locator("ol[class=react-results--main]").Locator("article[data-testid=result]").All()
 		if err != nil {
-			continue
+			return nil, fmt.Errorf("could not get search results: %w", err)
 		}
-		href, err := elResultLi.Locator("a[data-testid=result-title-a]").GetAttribute("href")
-		if err != nil {
-			continue
-		}
-		description, err := elResultLi.Locator("div[data-result=snippet]").InnerText()
-		if err != nil {
-			continue
-		}
+		for i, elResultLi := range elResultLiList {
+			title, err := elResultLi.Locator("a[data-testid=result-title-a]").InnerText()
+			if err != nil {
+				continue
+			}
+			href, err := elResultLi.Locator("a[data-testid=result-title-a]").GetAttribute("href")
+			if err != nil {
+				continue
+			}
+			description, err := elResultLi.Locator("div[data-result=snippet]").InnerText()
+			if err != nil {
+				continue
+			}
 
-		searchResultList = append(searchResultList, types.SearchTextResultItem{
-			Order:       i + 1,
-			Title:       title,
-			Url:         href,
-			Description: description,
-		})
+			searchResultList = append(searchResultList, types.SearchTextResultItem{
+				Order:       i + 1,
+				Title:       title,
+				Url:         href,
+				Description: description,
+			})
+			if len(searchResultList) >= param.MaxCount {
+				break // enough results
+			}
+		}
 		if len(searchResultList) >= param.MaxCount {
+			searchResultList = searchResultList[:param.MaxCount]
 			break // enough results
+		}
+		// scroll to bottom
+		if _, err = page.Evaluate("window.scrollTo(0, document.body.scrollHeight)"); err != nil {
+			continue
+		}
+		// auto next page
+		locator := page.Locator("button[id='more-results']")
+		if err = locator.WaitFor(playwright.LocatorWaitForOptions{Timeout: playwright.Float(5 * 1000)}); err != nil {
+			break
+		}
+		exist, err := locator.IsVisible()
+		if err != nil {
+			break
+		}
+		if exist {
+			if err = locator.Click(); err != nil {
+				break
+			}
+			// wait for elements to load
+			if err = page.WaitForLoadState(playwright.PageWaitForLoadStateOptions{
+				State:   playwright.LoadStateNetworkidle,
+				Timeout: playwright.Float(10 * 1000),
+			}); err != nil {
+				break
+			}
+		} else {
+			break // no more results
 		}
 	}
 
