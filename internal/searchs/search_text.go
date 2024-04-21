@@ -98,6 +98,7 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 		if err != nil {
 			return nil, fmt.Errorf("could not get search results: %w", err)
 		}
+		searchResultList = make([]types.SearchTextResultItem, 0)
 		for i, elResultLi := range elResultLiList {
 			title, err := elResultLi.Locator("a[data-testid=result-title-a]").InnerText()
 			if err != nil {
@@ -130,8 +131,15 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 		if _, err = page.Evaluate("window.scrollTo(0, document.body.scrollHeight)"); err != nil {
 			continue
 		}
+		// wait for elements to load
+		if err = page.WaitForLoadState(playwright.PageWaitForLoadStateOptions{
+			State:   playwright.LoadStateNetworkidle,
+			Timeout: playwright.Float(10 * 1000),
+		}); err != nil {
+			break
+		}
 		// auto next page
-		locator := page.Locator("button[id='more-results']")
+		locator := page.Locator("button[id=more-results]:not([disabled])")
 		if err = locator.WaitFor(playwright.LocatorWaitForOptions{Timeout: playwright.Float(5 * 1000)}); err != nil {
 			break
 		}
