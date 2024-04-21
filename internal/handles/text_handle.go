@@ -1,8 +1,6 @@
 package handles
 
 import (
-	"sync"
-
 	"github.com/gin-gonic/gin"
 
 	"github.com/lessapidev/lessapi-duckduckgo/internal/searchs"
@@ -18,37 +16,13 @@ func SearchTextHandle(c *gin.Context) {
 		c.JSON(200, utils.BuildApiError("invalid_params", "invalid request params"))
 		return
 	}
-	// call search function
-	var wg sync.WaitGroup
-	wg.Add(1)
 
-	// Channel to receive the search result
-	resultCh := make(chan interface{}, 1)
-	errCh := make(chan error, 1)
-
-	go func() {
-		defer wg.Done()
-		resp, err := searchs.SearchText(payload)
-		if err != nil {
-			errCh <- err
-			return
-		}
-		resultCh <- resp
-	}()
-
-	// Wait for the goroutine to finish
-	wg.Wait()
-	close(resultCh)
-	close(errCh)
-
-	// Check if there was an error
-	if err := <-errCh; err != nil {
+	// search text
+	resp, err := searchs.SearchText(payload)
+	if err != nil {
 		c.JSON(200, utils.BuildApiError("search_error", err.Error()))
 		return
 	}
-
-	// Get the result from the channel
-	resp := <-resultCh
 
 	// return response
 	c.JSON(200, utils.BuildApiSuccessData(resp))
