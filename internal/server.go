@@ -16,6 +16,7 @@ func Run() {
 	r.GET("/", handles.IndexHandle)
 	r.GET("/openapi/openapi.json", handles.OpenAPIHandle)
 	r.GET("/search/text", handles.SearchTextHandle)
+	r.GET("/base/list-language", handles.ListLanguageHandle)
 
 	err := r.Run(":8080")
 	if err != nil {

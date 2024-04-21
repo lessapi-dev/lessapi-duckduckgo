@@ -29,3 +29,17 @@ type SearchTextResultItem struct {
 	Url         string `json:"url"`         // url of the result
 	Description string `json:"description"` // description of the result
 }
+
+type LanguageType struct {
+	Code string `json:"code"`
+	Name string `json:"name"`
+}
+
+type ListLanguagePayload struct {
+	// Proxy url to use (optional)
+	ViaProxyUrl string `json:"viaProxyUrl" form:"viaProxyUrl"`
+}
+
+type ListLanguageResponse struct {
+	Languages []LanguageType `json:"languages"`
+}
