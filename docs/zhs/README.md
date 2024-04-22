@@ -35,7 +35,7 @@ LessAPI-DuckDuckGo 是一个搜索引擎API服务。
 使用Docker只需要一个命令即可将服务部署到8080端口。
 
 ```shell
-docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo lessapi/lessapi-duckduckgo:v0.0.1
+docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo lessapi/lessapi-duckduckgo:v0.0.2
 ```
 
 ## 使用

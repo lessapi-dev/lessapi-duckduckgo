@@ -2,6 +2,8 @@ package searchs
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/lessapidev/lessapi-duckduckgo/internal/types"
 	"github.com/playwright-community/playwright-go"
 )
@@ -73,7 +75,7 @@ func ListLanguage(param types.ListLanguagePayload) (*types.ListLanguageResponse,
 			return nil, fmt.Errorf("could not get text content: %w", err)
 		}
 		l = append(l, types.LanguageType{
-			Code: code,
+			Code: strings.ReplaceAll(code, "_", "-"),
 			Name: name,
 		})
 	}
