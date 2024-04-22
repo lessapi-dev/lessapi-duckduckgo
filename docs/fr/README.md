@@ -41,7 +41,7 @@ Simple, léger, fiable, déployable via Docker, facile à maintenir.
 **Paramètres de la requête:**
 
 - keyword: Mot-clé de recherche (obligatoire)
-- region: Région (facultatif) wt-wt, us-en, uk-en, ru-ru, etc. La valeur par défaut est wt-wt
+- region: Région (facultatif) en-US, fr-FR, zh-CN, ru-RU, etc. La valeur par défaut est en-US
 - maxCount: Nombre maximal de résultats retournés (facultatif) La valeur par défaut est 20
 - viaProxyUrl: Adresse du proxy utilisé par le navigateur (facultatif) Exemple : http://proxy.server:3000 La valeur par
   défaut est vide

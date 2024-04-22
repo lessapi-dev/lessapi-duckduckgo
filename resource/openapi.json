@@ -27,7 +27,7 @@
           {
             "name": "region",
             "in": "query",
-            "description": "locate region. wt-wt, us-en, uk-en, ru-ru, etc. Defaults to \"wt-wt\".",
+            "description": "locate region. en-US, fr-FR, zh-CN, ru-RU, etc. Defaults to \"en-US\".",
             "required": false,
             "schema": {
               "type": "string"

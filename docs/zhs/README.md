@@ -49,7 +49,7 @@ docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo le
 **请求参数:**
 
 - keyword: 搜索关键字(必填)
-- region: 地区(选填)  wt-wt, us-en, uk-en, ru-ru, 等 默认值 wt-wt
+- region: 地区(选填)  en-US, fr-FR, zh-CN, ru-RU, 等 默认值 en-US
 - maxCount: 最大返回数量(选填)  默认值 20
 - viaProxyUrl: 浏览器使用代理的地址(选填) 如 http://proxy.server:3000  默认值 空
 

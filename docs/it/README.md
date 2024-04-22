@@ -40,7 +40,7 @@ offre un'interfaccia API semplice, leggera e affidabile, ed è facilmente manten
 **Parametri della richiesta:**
 
 - keyword: parola chiave da cercare (obbligatorio)
-- region: regione (facoltativo) es. wt-wt, us-en, uk-en, ru-ru, ecc. Il valore predefinito è wt-wt
+- region: regione (facoltativo) es. en-US, fr-FR, zh-CN, ru-RU, ecc. Il valore predefinito è en-US
 - maxCount: numero massimo di risultati restituiti (facoltativo) Il valore predefinito è 20
 - viaProxyUrl: indirizzo del proxy da utilizzare con il browser (facoltativo) ad esempio http://proxy.server:3000 Il
   valore predefinito è vuoto

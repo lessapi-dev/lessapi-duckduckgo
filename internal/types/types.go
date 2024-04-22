@@ -9,7 +9,7 @@ type ApiResponse[T any] struct {
 type SearchTextPayload struct {
 	// Keywords to search (required)
 	Keyword string `json:"keyword" form:"keyword" validate:"required"`
-	// Region to search (optional) (default "wt-wt")
+	// Region to search (optional) (default "en-US")
 	Region string `json:"region" form:"region"`
 	// Time limit to search (optional) ( "" default all , "d" past day, "w" past week, "m" past month, "y" past year)
 	TimeLimit string `json:"timeLimit" form:"timeLimit"`

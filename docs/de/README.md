@@ -41,7 +41,7 @@ Einfach, leicht, zuverlässig, Docker-Deployment, einfach zu warten.
 **Anforderungsparameter:**
 
 - keyword: Suchschlüsselwort (Pflichtfeld)
-- region: Region (optional) z.B. wt-wt, us-en, uk-en, ru-ru, usw. Standardwert ist wt-wt
+- region: Region (optional) z.B. en-US, fr-FR, zh-CN, ru-RU, usw. Standardwert ist en-US
 - maxCount: Maximale Rückgabeanzahl (optional) Standardwert ist 20
 - viaProxyUrl: Adresse des Proxys, der vom Browser verwendet wird (optional) z.B. http://proxy.server:3000 Standardwert
   ist leer

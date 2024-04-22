@@ -42,7 +42,7 @@ LessAPI-DuckDuckGo 是一個搜索引擎API服務。
 **請求參數:**
 
 - keyword: 搜索關鍵字(必填)
-- region: 地區(選填)  wt-wt, us-en, uk-en, ru-ru, 等 預設值 wt-wt
+- region: 地區(選填)  en-US, fr-FR, zh-CN, ru-RU, 等 預設值 en-US
 - maxCount: 最大返回數量(選填)  預設值 20
 - viaProxyUrl: 瀏覽器使用代理的地址(選填) 如 http://proxy.server:3000  預設值 空
 

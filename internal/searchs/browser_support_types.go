@@ -4,7 +4,7 @@ package searchs
 type BrowserOptions struct {
 	ProxyServer     *string
 	EnableStealthJs *bool
-	Locate          *string
+	Language        *string
 	viewportWidth   *int
 	viewportHeight  *int
 }

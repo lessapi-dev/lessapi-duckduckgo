@@ -46,7 +46,7 @@ docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo le
 **Request Parameters:**
 
 - keyword: Search keyword (required)
-- region: Region (optional) such as wt-wt, us-en, uk-en, ru-ru, etc. Default is wt-wt
+- region: Region (optional) such as en-US, fr-FR, zh-CN, ru-RU, etc. Default is en-US
 - maxCount: Maximum number of results returned (optional) Default is 20
 - viaProxyUrl: The address of the proxy used by the browser (optional) e.g., http://proxy.server:3000 Default is empty
 

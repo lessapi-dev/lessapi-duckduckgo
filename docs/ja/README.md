@@ -40,7 +40,7 @@ playwright と DuckDuckGo 検索エンジンを基に、単純なAPIインター
 **リクエストパラメータ:**
 
 - keyword: 検索キーワード(必須)
-- region: 地域(任意)  wt-wt, us-en, uk-en, ru-ru, など。デフォルト値は wt-wt
+- region: 地域(任意)  en-US, fr-FR, zh-CN, ru-RU, など。デフォルト値は en-US
 - maxCount: 最大返信数(任意)  デフォルト値は 20
 - viaProxyUrl: ブラウザが使用するプロキシのアドレス(任意)  例: http://proxy.server:3000  デフォルト値は空
 

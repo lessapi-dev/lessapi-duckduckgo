@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/lessapidev/lessapi-duckduckgo/internal/utils"
 	"github.com/playwright-community/playwright-go"
+	"strings"
 )
 
 // NewBrowserContextWithOptions creates a new browser context with options
@@ -27,9 +28,11 @@ func NewBrowserContextWithOptions(opt BrowserOptions) (playwright.BrowserContext
 	}
 
 	// create new context
-	pLocate := opt.Locate
+	pLocate := opt.Language
 	if pLocate == nil {
-		pLocate = playwright.String("en-Us")
+		pLocate = playwright.String("en-US")
+	} else {
+		pLocate = playwright.String(strings.ReplaceAll(*pLocate, "_", "-"))
 	}
 	pViewport := &playwright.Size{
 		Width:  1920,

@@ -39,7 +39,7 @@ LessAPI-DuckDuckGo는 DuckDuckGo 검색 엔진을 기반으로 하는 간단한 
 **요청 매개 변수:**
 
 - keyword: 검색 키워드(필수)
-- region: 지역(선택)  wt-wt, us-en, uk-en, ru-ru, 등 기본값 wt-wt
+- region: 지역(선택)  en-US, fr-FR, zh-CN, ru-RU, 등 기본값 en-US
 - maxCount: 최대 반환 수(선택)  기본값 20
 - viaProxyUrl: 브라우저가 프록시를 사용하는 주소(선택)  예: http://proxy.server:3000  기본값: 빈 문자열
 

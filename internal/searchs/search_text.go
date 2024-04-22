@@ -15,7 +15,7 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 		return nil, fmt.Errorf("keyword is required")
 	}
 	if param.Region == "" {
-		param.Region = "wt-wt"
+		param.Region = "en-US"
 	}
 	if param.TimeLimit == "" {
 		param.TimeLimit = ""
@@ -35,7 +35,7 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 	browserOpt := BrowserOptions{
 		ProxyServer:     &param.ViaProxyUrl,
 		EnableStealthJs: playwright.Bool(true),
-		Locate:          &param.Region,
+		Language:        &param.Region,
 		viewportWidth:   playwright.Int(1920),
 		viewportHeight:  playwright.Int(1080 - 35),
 	}

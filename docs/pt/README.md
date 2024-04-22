@@ -41,7 +41,7 @@ Simples, leve, confiável, implantado com Docker, fácil de manter.
 **Parâmetros de solicitação:**
 
 - keyword: Palavra-chave de pesquisa (obrigatório)
-- region: Região (opcional) como wt-wt, us-en, uk-en, ru-ru, etc. O valor padrão é wt-wt
+- region: Região (opcional) como en-US, fr-FR, zh-CN, ru-RU, etc. O valor padrão é en-US
 - maxCount: Número máximo de resultados retornados (opcional) O valor padrão é 20
 - viaProxyUrl: Endereço do proxy usado pelo navegador (opcional) como http://proxy.server:3000 O valor padrão é vazio
 

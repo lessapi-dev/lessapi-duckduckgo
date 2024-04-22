@@ -42,7 +42,7 @@ Es simple, ligero, confiable, se puede desplegar con Docker y fácil de mantener
 **Parámetros de solicitud:**
 
 - keyword: Palabra clave de búsqueda (obligatorio)
-- region: Región (opcional) como wt-wt, us-en, uk-en, ru-ru, etc. El valor predeterminado es wt-wt
+- region: Región (opcional) como en-US, fr-FR, zh-CN, ru-RU, etc. El valor predeterminado es en-US
 - maxCount: Número máximo de resultados devueltos (opcional) El valor predeterminado es 20
 - viaProxyUrl: Dirección del proxy utilizado por el navegador (opcional) como http://proxy.server:3000 El valor
   predeterminado es vacío
