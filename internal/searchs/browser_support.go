@@ -2,9 +2,12 @@ package searchs
 
 import (
 	"fmt"
-	"github.com/lessapidev/lessapi-duckduckgo/internal/utils"
-	"github.com/playwright-community/playwright-go"
 	"strings"
+
+	"github.com/lessapidev/lessapi-duckduckgo/internal/envs"
+	"github.com/lessapidev/lessapi-duckduckgo/internal/utils"
+
+	"github.com/playwright-community/playwright-go"
 )
 
 // NewBrowserContextWithOptions creates a new browser context with options
@@ -19,21 +22,25 @@ func NewBrowserContextWithOptions(opt BrowserOptions) (playwright.BrowserContext
 	// launch browser
 	launchOptions := playwright.BrowserTypeLaunchOptions{}
 	launchOptions.Headless = playwright.Bool(true)
+
+	// set proxy
 	if opt.ProxyServer != nil && *opt.ProxyServer != "" {
 		launchOptions.Proxy = &playwright.Proxy{Server: *opt.ProxyServer}
+	} else if utils.GetEnv(envs.LessapiDefaultViaProxyUrl) != "" {
+		launchOptions.Proxy = &playwright.Proxy{Server: utils.GetEnv(envs.LessapiDefaultViaProxyUrl)}
 	}
 	browser, err := pw.Chromium.Launch(launchOptions)
 	if err != nil {
 		return nil, nil, fmt.Errorf("could not launch browser: %w", err)
 	}
-
-	// create new context
+	// set locale
 	pLocate := opt.Language
-	if pLocate == nil {
-		pLocate = playwright.String("en-US")
+	if pLocate == nil || *pLocate == "" {
+		pLocate = playwright.String(utils.GetEnvOrDefault(envs.LessapiDefaultLanguage, "en-US"))
 	} else {
 		pLocate = playwright.String(strings.ReplaceAll(*pLocate, "_", "-"))
 	}
+	// set viewport
 	pViewport := &playwright.Size{
 		Width:  1920,
 		Height: 1080,
@@ -44,6 +51,7 @@ func NewBrowserContextWithOptions(opt BrowserOptions) (playwright.BrowserContext
 			Height: *opt.viewportHeight,
 		}
 	}
+	// create context
 	context, err := browser.NewContext(playwright.BrowserNewContextOptions{
 		Locale:   pLocate,
 		Viewport: pViewport,

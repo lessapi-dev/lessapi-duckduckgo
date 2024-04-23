@@ -14,17 +14,11 @@ func SearchText(param types.SearchTextPayload) (*types.SearchTextResponse, error
 	if param.Keyword == "" {
 		return nil, fmt.Errorf("keyword is required")
 	}
-	if param.Region == "" {
-		param.Region = "en-US"
-	}
 	if param.TimeLimit == "" {
 		param.TimeLimit = ""
 	}
 	if param.MaxCount < 1 {
 		param.MaxCount = 20
-	}
-	if param.ViaProxyUrl == "" {
-		param.ViaProxyUrl = ""
 	}
 
 	// -----------------------------------------------------------

@@ -53,7 +53,7 @@ docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo le
 **Request Example:**
 
 ```shell
-curl 'http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=2'
+curl 'http://127.0.0.1:8080/search/text?keyword=USA&maxCount=10'
 ```
 
 ```shell
@@ -83,6 +83,14 @@ curl 'http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=99&viaProxyUrl=
   }
 }
 ```
+
+## Advanced
+
+### Use Environment Variables
+
+- **LESSAPI_DEFAULT_LANGUAGE**: (optional) Default language, such as en-US, fr-FR, zh-CN, ru-RU, etc. Default is en-US
+- **LESSAPI_DEFAULT_VIA_PROXY_URL**: (optional) The address of the proxy used by the browser,
+  e.g., http://proxy.server:3000 Default is empty
 
 ## Security
 
