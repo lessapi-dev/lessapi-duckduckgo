@@ -2,12 +2,10 @@ package utils
 
 import (
 	"github.com/gin-gonic/gin"
-	"io"
-	"os"
-
 	"github.com/lessapidev/lessapi-duckduckgo/internal/types"
 )
 
+// BuildApiSuccess returns a new ApiResponse with code "success" and empty data.
 func BuildApiSuccess() *types.ApiResponse[any] {
 	return &types.ApiResponse[any]{
 		Code:    "success",
@@ -16,6 +14,7 @@ func BuildApiSuccess() *types.ApiResponse[any] {
 	}
 }
 
+// BuildApiSuccessData returns a new ApiResponse with code "success" and the given data.
 func BuildApiSuccessData[T any](data T) *types.ApiResponse[T] {
 	return &types.ApiResponse[T]{
 		Code:    "success",
@@ -25,25 +24,10 @@ func BuildApiSuccessData[T any](data T) *types.ApiResponse[T] {
 
 }
 
+// BuildApiError returns a new ApiResponse with the given error code and message.
 func BuildApiError(errCode string, errorMessage string) *types.ApiResponse[any] {
 	return &types.ApiResponse[any]{
 		Code:    errCode,
 		Message: &errorMessage,
 	}
-}
-
-func ReadLocalFile(filename string) (string, error) {
-	file, err := os.Open(filename)
-	if err != nil {
-		return "", err
-	}
-	defer func() {
-		_ = file.Close()
-	}()
-
-	data, err := io.ReadAll(file)
-	if err != nil {
-		return "", err
-	}
-	return string(data), nil
 }
