@@ -34,7 +34,7 @@ Large Language Model (LLM) Friendly. Support Plain Text Response.
 One command is all it takes to deploy the service to port 8080 using Docker.
 
 ```shell
-docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo lessapi/lessapi-duckduckgo:v0.0.2
+docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo lessapi/lessapi-duckduckgo:v0.0.3
 ```
 
 ## Usage
