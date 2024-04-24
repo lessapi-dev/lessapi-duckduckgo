@@ -27,9 +27,19 @@ LessAPI-DuckDuckGo 是一個搜索引擎API服務。
 
 簡單、輕量、可靠、Docker部署、易於維護。
 
+大型語言模型(LLM)友好。支持純文本響應。
+
 ## 狀態
 
 > 專案正在實驗性地開發中，不建議在生產環境中使用。
+
+## 部署
+
+使用Docker只需要一個命令即可將服務部署到8080端口。
+
+```shell
+docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo lessapi/lessapi-duckduckgo:v0.0.2
+```
 
 ## 使用
 
@@ -45,11 +55,16 @@ LessAPI-DuckDuckGo 是一個搜索引擎API服務。
 - region: 地區(選填)  en-US, fr-FR, zh-CN, ru-RU, 等 預設值 en-US
 - maxCount: 最大返回數量(選填)  預設值 20
 - viaProxyUrl: 瀏覽器使用代理的地址(選填) 如 http://proxy.server:3000  預設值 空
+- llmStyle: 是否使用大型語言模型(LLM)友好風格響應(選填)  1, 0 預設值 0
 
 **請求示例:**
 
 ```shell
-curl 'http://127.0.0.1:8080/search/text?keyword=hello&maxCount=2'
+curl 'http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=10'
+```
+
+```shell
+curl 'http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=99&viaProxyUrl=http://proxy.server:3000'
 ```
 
 **響應示例:**

@@ -8,10 +8,20 @@ import (
 )
 
 func IndexHandle(c *gin.Context) {
-	resp := gin.H{
-		"server":  lessapi_duckduckgo.ServerName,
-		"github":  lessapi_duckduckgo.ProjectGithub,
-		"version": lessapi_duckduckgo.Version,
+	resp := IndexResponse{
+		Server:  lessapi_duckduckgo.ServerName,
+		Github:  lessapi_duckduckgo.ProjectGithub,
+		Version: lessapi_duckduckgo.Version,
 	}
-	c.JSON(200, utils.BuildApiSuccessData(resp))
+	utils.SendResponse(c, utils.BuildApiSuccessData(resp))
+}
+
+type IndexResponse struct {
+	Server  string `json:"server"`
+	Github  string `json:"github"`
+	Version string `json:"version"`
+}
+
+func (i IndexResponse) ToLLMStyle() string {
+	return "Server: " + i.Server + "\nGithub: " + i.Github + "\nVersion: " + i.Version
 }

@@ -18,23 +18,24 @@ func ListLanguageHandle(c *gin.Context) {
 	// parse request params
 	var payload types.ListLanguagePayload
 	if err := c.ShouldBindQuery(&payload); err != nil {
-		c.JSON(200, utils.BuildApiError("invalid_params", "invalid request params"))
+		utils.SendResponse(c, utils.BuildApiError("invalid_params", "invalid request params"))
 		return
 	}
 
 	// get from cache
 	languages, found := languagesCache.Get("languages")
 	if found {
-		c.JSON(200, utils.BuildApiSuccessData(types.ListLanguageResponse{
+		resp := types.ListLanguageResponse{
 			Languages: languages.([]types.LanguageType),
-		}))
+		}
+		utils.SendResponse(c, utils.BuildApiSuccessData(resp))
 		return
 	}
 
 	// search text
 	resp, err := searchs.ListLanguage(payload)
 	if err != nil {
-		c.JSON(200, utils.BuildApiError("search_error", err.Error()))
+		utils.SendResponse(c, utils.BuildApiError("fetch_error", err.Error()))
 		return
 	}
 
@@ -43,5 +44,5 @@ func ListLanguageHandle(c *gin.Context) {
 	}
 
 	// return response
-	c.JSON(200, utils.BuildApiSuccessData(resp))
+	utils.SendResponse(c, utils.BuildApiSuccessData(resp))
 }

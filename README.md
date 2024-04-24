@@ -23,6 +23,8 @@ Based on Playwright and DuckDuckGo's search engine, it encapsulates to provide s
 
 Simple, lightweight, reliable, Docker deployable, easy to maintain.
 
+Large Language Model (LLM) Friendly. Support Plain Text Response.
+
 ## Status
 
 > Experimentally under development and not recommended for use in production environments.
@@ -47,13 +49,14 @@ docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo le
 
 - keyword: Search keyword (required)
 - region: Region (optional) such as en-US, fr-FR, zh-CN, ru-RU, etc. Default is en-US
-- maxCount: Maximum number of results returned (optional) Default is 20
-- viaProxyUrl: The address of the proxy used by the browser (optional) e.g., http://proxy.server:3000 Default is empty
+- maxCount: Maximum number of results returned. (optional) Default is 20
+- viaProxyUrl: The address of the proxy used by the browser. e.g., http://proxy.server:3000 (optional) Default is empty
+- llmStyle: Whether to use Large Language Model (LLM) Friendly style response. e.g. 1, 0 (optional) Default is 0
 
 **Request Example:**
 
 ```shell
-curl 'http://127.0.0.1:8080/search/text?keyword=USA&maxCount=10'
+curl 'http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=10'
 ```
 
 ```shell

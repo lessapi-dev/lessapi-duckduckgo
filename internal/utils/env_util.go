@@ -1,8 +1,9 @@
 package utils
 
 import (
-	"github.com/lessapidev/lessapi-duckduckgo/internal/envs"
 	"os"
+
+	"github.com/lessapidev/lessapi-duckduckgo/internal/envs"
 )
 
 // GetEnvOrDefault returns the value of the environment variable with the given key.
