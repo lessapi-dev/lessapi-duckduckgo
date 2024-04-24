@@ -56,6 +56,8 @@ docker run -d -p 8080:8080 --restart=unless-stopped --name lessapi-duckduckgo le
 - viaProxyUrl: 浏览器使用代理的地址(选填) 如 http://proxy.server:3000  默认值 空
 - llmStyle: 是否使用大型语言模型(LLM)友好风格响应(选填)  1, 0 默认值 0
 
+> Tips：位于中国大陆的用户直接访问DuckDuckGo可能遇到网络不稳定的问题，建议使用 viaProxyUrl 参数指定代理地址。
+
 **请求示例:**
 
 ```shell
@@ -90,6 +92,13 @@ curl 'http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=99&viaProxyUrl=
 }
 
 ```
+
+## 高级
+
+### 使用环境变量
+
+- **LESSAPI_DEFAULT_LANGUAGE**: (选填) 默认语言, 如 en-US, fr-FR, zh-CN, ru-RU, 等 默认值 en-US
+- **LESSAPI_DEFAULT_VIA_PROXY_URL**: (选填) 浏览器默认使用代理的地址, 如 http://proxy.server:3000 默认值 空
 
 ## 安全
 
