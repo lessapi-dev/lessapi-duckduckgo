@@ -2,6 +2,7 @@
 
 [![GitHub](https://img.shields.io/github/license/lessapi-dev/lessapi-duckduckgo?style=for-the-badge)](https://github.com/lessapi-dev/lessapi-duckduckgo)
 [![Docker](https://img.shields.io/docker/pulls/lessapi/lessapi-duckduckgo?style=for-the-badge)](https://hub.docker.com/r/lessapi/lessapi-duckduckgo)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flessapi-dev%2Flessapi-duckduckgo.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flessapi-dev%2Flessapi-duckduckgo?ref=badge_shield)
 
 [English](./README.md) |
 [简体中文](./docs/zhs/README.md) |
@@ -102,3 +103,6 @@ curl 'http://127.0.0.1:8080/search/text?keyword=lessapi&maxCount=99&viaProxyUrl=
 ## License
 
 [MIT](./LICENSE)
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flessapi-dev%2Flessapi-duckduckgo.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Flessapi-dev%2Flessapi-duckduckgo?ref=badge_large)
